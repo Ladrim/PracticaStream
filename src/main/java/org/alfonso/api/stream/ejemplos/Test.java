@@ -22,8 +22,8 @@ public class Test
         String apellidoModificado = apellidos.replace("e","i");
 
 
-        //String nombre = nombreOptional.orElse("");                                                         //Uno de los 2
-        String nombre = nombreOptional.orElseThrow( () -> new RuntimeException("Nombre no puede ser nullo") ); //Uno de los 2
+        //String nombre = nombreOptional.orElse("");
+        String nombre = nombreOptional.orElseThrow( () -> new RuntimeException("Nombre no puede ser nullo") );
 
         return nombre + " " + apellidoModificado;
     }

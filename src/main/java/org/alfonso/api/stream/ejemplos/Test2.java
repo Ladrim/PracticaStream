@@ -72,10 +72,6 @@ public class Test2
             .collect(Collectors.joining(""));
 
 
-
-        //--------------------------- PRINTS -----------------------------------------------------------------//
-
-
         System.out.println("REPRESENTATION: " + representation);
 
 

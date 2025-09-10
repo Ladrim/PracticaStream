@@ -25,12 +25,12 @@ public class Test3
                 .map(nombre -> crearUsuario(nombre))
                 .toList();
 
-        // List -> Map<String, List<Usuarios>> (Agrupado por el mismo apellido)
+
 
         Map<String, List<Usuario>> mapaPorApellido =  listaUsuarios.stream()
                 .collect(Collectors.groupingBy( (it) -> it.getApellido()));
 
-        //Map<String, List<Usuario>> -> Map<String, Integer>
+
 
         String optional = mapaPorApellido.entrySet().stream()  // ENTRY<String, List>
                 .map( it -> Map.entry(it.getKey(), it.getValue().size() )) // ENTRY<String, Integer>
