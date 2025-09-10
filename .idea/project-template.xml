@@ -1,0 +1,3 @@
+<template>
+  <input-field default="org.alfonso.api.stream.ejemplos.models">IJ_BASE_PACKAGE</input-field>
+</template>
