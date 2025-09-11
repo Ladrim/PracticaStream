@@ -2,7 +2,7 @@ package org.alfonso.api.stream.ejemplos.models;
 
 import java.util.Objects;
 
-public class Usuario
+public class UsuarioC
 {
     private String nombre;
     private String apellido;
@@ -11,7 +11,7 @@ public class Usuario
     private Integer id;
     private static int ultimoId;
 
-    public Usuario(String nombre, String apellido,Integer edad, String dni)
+    public UsuarioC(String nombre, String apellido, Integer edad, String dni)
     {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -44,8 +44,8 @@ public class Usuario
     {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Usuario usuario = (Usuario) o;
-        return Objects.equals(nombre, usuario.nombre) && Objects.equals(apellido, usuario.apellido);
+        UsuarioC usuarioC = (UsuarioC) o;
+        return Objects.equals(nombre, usuarioC.nombre) && Objects.equals(apellido, usuarioC.apellido);
     }
 
     @Override

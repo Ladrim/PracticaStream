@@ -1,6 +1,6 @@
 package org.alfonso.api.stream.ejemplos;
 
-import org.alfonso.api.stream.ejemplos.models.Usuario;
+import org.alfonso.api.stream.ejemplos.models.UsuarioC;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +18,8 @@ public class EjemploStreamDistict
         listaDeNombres.add("TOMASITO PERALES");
         listaDeNombres.add("TOMASITO PERALES");
 
-        Stream<Usuario> usuarioOptional = listaDeNombres.stream()
-                .map(it -> new Usuario(it.split(" ")[0], it.split(" ")[1],null,null) )
+        Stream<UsuarioC> usuarioOptional = listaDeNombres.stream()
+                .map(it -> new UsuarioC(it.split(" ")[0], it.split(" ")[1],null,null) )
                 .distinct();
 
         usuarioOptional.forEach(it -> System.out.println(it));
