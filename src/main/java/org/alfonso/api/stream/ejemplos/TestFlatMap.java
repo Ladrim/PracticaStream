@@ -1,5 +1,7 @@
 package org.alfonso.api.stream.ejemplos;
 
+import org.alfonso.api.stream.ejemplos.models.Alumno;
+
 import java.util.Arrays;
 import java.util.List;
 

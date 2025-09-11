@@ -32,8 +32,8 @@ public class Test3
 
 
 
-        String optional = mapaPorApellido.entrySet().stream()  // ENTRY<String, List>
-                .map( it -> Map.entry(it.getKey(), it.getValue().size() )) // ENTRY<String, Integer>
+        String optional = mapaPorApellido.entrySet().stream()
+                .map( it -> Map.entry(it.getKey(), it.getValue().size() ))
                 .sorted(Comparator.comparing( (Map.Entry<String, Integer> it) -> it.getValue() ).reversed())
                 .findFirst()
                 .map( it -> it.getKey() )

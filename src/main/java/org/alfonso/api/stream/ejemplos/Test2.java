@@ -81,8 +81,5 @@ public class Test2
         System.out.println(usuarioAMayor30ConDniMenor);
         System.out.println("La cantidad de usuarios es de " + cantidadDeUsuarios);
         System.out.println("Cantidad de usuarios mayores de 20 años es de " + cantidadDeUsuariosMayores20);
-
-
-
     }
 }
