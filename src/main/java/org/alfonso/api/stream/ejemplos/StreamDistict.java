@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class EjemploStreamDistict
+public class StreamDistict
 {
     public static void main(String[] args) throws Exception
     {
