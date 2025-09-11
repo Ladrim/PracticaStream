@@ -1,6 +1,7 @@
 package org.alfonso.api.stream.ejemplos;
 
 import org.alfonso.api.stream.ejemplos.models.Alumno;
+import org.alfonso.api.stream.ejemplos.models.Aula;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,6 +22,15 @@ public class TestFlatMap
                 new Alumno("Cucon"),
                 new Alumno("Pepito")
         );
+
+        Aula aula1 = new Aula(alumnosAula1);
+        Aula aula2 = new Aula(alumnosAula2);
+
+        List<Aula>aulas = Arrays.asList(aula1, aula2);
+
+        List<List<Alumno>> listasAlumnos = aulas.stream()
+                .map( it -> it.alumnos )
+                .toList();
 
 
     }
