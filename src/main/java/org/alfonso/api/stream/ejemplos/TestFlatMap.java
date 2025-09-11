@@ -32,6 +32,15 @@ public class TestFlatMap
                 .map( it -> it.alumnos )
                 .toList();
 
+        List<Alumno> alumnos = aulas.stream()
+                .flatMap( it -> it.alumnos.stream() )
+                .toList();
+
+        listasAlumnos.forEach(System.out::println);
+
+        alumnos.forEach(System.out::println);
+
+
 
     }
 }
