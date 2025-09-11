@@ -1,6 +1,6 @@
 package org.alfonso.api.stream.ejemplos;
 
-import org.alfonso.api.stream.ejemplos.models.Usuario;
+import org.alfonso.api.stream.ejemplos.models.UsuarioA;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -21,13 +21,13 @@ public class Test3
         listaDeNombres.add("JUANITO PERALES");
         listaDeNombres.add("ALFONSO MENTECATO");
 
-        List<Usuario> listaUsuarios = listaDeNombres.stream()
+        List<UsuarioA> listaUsuarioAS = listaDeNombres.stream()
                 .map(nombre -> crearUsuario(nombre))
                 .toList();
 
 
 
-        Map<String, List<Usuario>> mapaPorApellido =  listaUsuarios.stream()
+        Map<String, List<UsuarioA>> mapaPorApellido =  listaUsuarioAS.stream()
                 .collect(Collectors.groupingBy( (it) -> it.getApellido()));
 
 
@@ -42,12 +42,12 @@ public class Test3
         System.out.println(optional);
     }
 
-    private static Usuario crearUsuario(String nombreYApellidos)
+    private static UsuarioA crearUsuario(String nombreYApellidos)
     {
         String[]valores = nombreYApellidos.split(" ");
         String nombre = valores[0];
         String apellidos = valores[1];
 
-        return new Usuario(nombre, apellidos, null, null);
+        return new UsuarioA(nombre, apellidos, null, null);
     }
 }

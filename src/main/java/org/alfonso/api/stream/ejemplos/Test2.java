@@ -1,6 +1,6 @@
 package org.alfonso.api.stream.ejemplos;
 
-import org.alfonso.api.stream.ejemplos.models.Usuario;
+import org.alfonso.api.stream.ejemplos.models.UsuarioA;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -15,13 +15,13 @@ public class Test2
         listaDeNumeros.add(29);
         listaDeNumeros.add(125);
 
-        List<Usuario> listaDeUsuarios = new ArrayList<>();
-        listaDeUsuarios.add(new Usuario("Ceji","Junto",24,"12345A"));
-        listaDeUsuarios.add(new Usuario("Ben","Ytocamelas",45,"23456B"));
-        listaDeUsuarios.add(new Usuario("Benito","Boniato",59,"34567C"));
-        listaDeUsuarios.add(new Usuario("Camilo","Mentecato",68,"45678D"));
-        listaDeUsuarios.add(new Usuario("Eustaquio","Berbenero",68,"56789E"));
-        listaDeUsuarios.add(new Usuario("Bartolo","Berbenero",70,"67899F"));
+        List<UsuarioA> listaDeUsuarioAS = new ArrayList<>();
+        listaDeUsuarioAS.add(new UsuarioA("Ceji","Junto",24,"12345A"));
+        listaDeUsuarioAS.add(new UsuarioA("Ben","Ytocamelas",45,"23456B"));
+        listaDeUsuarioAS.add(new UsuarioA("Benito","Boniato",59,"34567C"));
+        listaDeUsuarioAS.add(new UsuarioA("Camilo","Mentecato",68,"45678D"));
+        listaDeUsuarioAS.add(new UsuarioA("Eustaquio","Berbenero",68,"56789E"));
+        listaDeUsuarioAS.add(new UsuarioA("Bartolo","Berbenero",70,"67899F"));
 
         List<Integer> listaOrdenada = listaDeNumeros.stream()
                 .sorted(Comparator.reverseOrder())
@@ -33,42 +33,42 @@ public class Test2
 
         System.out.println(numeroMasGrande);
 
-        List<Usuario> listaOrdenadaPorEdad = listaDeUsuarios.stream()
+        List<UsuarioA> listaOrdenadaPorEdad = listaDeUsuarioAS.stream()
             .sorted(Comparator.comparing( it -> it.getEdad()))
             .collect(Collectors.toList());
 
-        List<Usuario> listaOrdenadaPorEdadyDni = listaDeUsuarios.stream()
-            .sorted(Comparator.comparing((Usuario it)-> it.getDni()).thenComparing((Usuario it) -> it.getDni()))
+        List<UsuarioA> listaOrdenadaPorEdadyDni = listaDeUsuarioAS.stream()
+            .sorted(Comparator.comparing((UsuarioA it)-> it.getDni()).thenComparing((UsuarioA it) -> it.getDni()))
             .collect(Collectors.toCollection(() -> new ArrayList<>()));
 
-        Usuario usuarioMasEdad = listaDeUsuarios.stream()
-                .min(Comparator.comparing(Usuario::getEdad).reversed().thenComparing(Usuario::getNombre)).orElseThrow(() -> new RuntimeException("No se ha encontrado a nadie"));
+        UsuarioA usuarioAMasEdad = listaDeUsuarioAS.stream()
+                .min(Comparator.comparing(UsuarioA::getEdad).reversed().thenComparing(UsuarioA::getNombre)).orElseThrow(() -> new RuntimeException("No se ha encontrado a nadie"));
 
-        List<Usuario> listaPim = listaDeUsuarios.stream()
+        List<UsuarioA> listaPim = listaDeUsuarioAS.stream()
             .sorted( Comparator.comparing( it -> it.getEdad() ))
             .toList();
 
-        List<Usuario> usuariosEncontradosMayores30 = listaDeUsuarios.stream()
+        List<UsuarioA> usuariosEncontradosMayores30 = listaDeUsuarioAS.stream()
                 .filter(it -> it.getEdad()>30)
                 .collect(Collectors.toList());
 
-        Usuario usuarioMayor30ConDniMenor = listaDeUsuarios.stream()
+        UsuarioA usuarioAMayor30ConDniMenor = listaDeUsuarioAS.stream()
             .filter(it -> it.getEdad() > 20)
-            .min(Comparator.comparing(Usuario::getDni)).orElseThrow(() -> new RuntimeException("No se ha encontrado a nadie"));
+            .min(Comparator.comparing(UsuarioA::getDni)).orElseThrow(() -> new RuntimeException("No se ha encontrado a nadie"));
 
-        Usuario usuarioMayor30ConDniMenorTestOrElse = listaDeUsuarios.stream()
+        UsuarioA usuarioAMayor30ConDniMenorTestOrElse = listaDeUsuarioAS.stream()
                 .filter(it -> it.getEdad() > 20)
-                .min(Comparator.comparing(Usuario::getDni)).orElse(new Usuario("test","test2",34,"12345k"));
+                .min(Comparator.comparing(UsuarioA::getDni)).orElse(new UsuarioA("test","test2",34,"12345k"));
 
-        long cantidadDeUsuarios = listaDeUsuarios.stream()
+        long cantidadDeUsuarios = listaDeUsuarioAS.stream()
                 .count();
 
-        long cantidadDeUsuariosMayores20 = listaDeUsuarios.stream()
+        long cantidadDeUsuariosMayores20 = listaDeUsuarioAS.stream()
                 .filter(it -> it.getEdad()>20)
                 .count();
 
         String representation = listaOrdenadaPorEdadyDni.stream()
-            .map(Usuario::toString)
+            .map(UsuarioA::toString)
             .collect(Collectors.joining(""));
 
 
@@ -76,9 +76,9 @@ public class Test2
 
 
         System.out.println(listaOrdenadaPorEdadyDni);
-        System.out.println(usuarioMasEdad);
+        System.out.println(usuarioAMasEdad);
         System.out.println(usuariosEncontradosMayores30);
-        System.out.println(usuarioMayor30ConDniMenor);
+        System.out.println(usuarioAMayor30ConDniMenor);
         System.out.println("La cantidad de usuarios es de " + cantidadDeUsuarios);
         System.out.println("Cantidad de usuarios mayores de 20 años es de " + cantidadDeUsuariosMayores20);
 

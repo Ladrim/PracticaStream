@@ -1,6 +1,6 @@
 package org.alfonso.api.stream.ejemplos;
 
-import org.alfonso.api.stream.ejemplos.models.Usuario;
+import org.alfonso.api.stream.ejemplos.models.UsuarioA;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,33 +11,33 @@ public class Test5
 {
     public static void main(String[] args)
     {
-        List<Usuario> listaDeUsuarios = new ArrayList<>();
-        listaDeUsuarios.add(new Usuario("TON","TIN",20,"12345A"));
-        listaDeUsuarios.add(new Usuario("BARTOLO","PERALES",45,"23456B"));
-        listaDeUsuarios.add(new Usuario("EUSTAQUIO","BONIATO",59,"34567C"));
-        listaDeUsuarios.add(new Usuario("CENUTRIO","MENTECATO",68,"45678D"));
-        listaDeUsuarios.add(new Usuario("BARTOLIN","CENUTRITO",20,"56789F"));
+        List<UsuarioA> listaDeUsuarioAS = new ArrayList<>();
+        listaDeUsuarioAS.add(new UsuarioA("TON","TIN",20,"12345A"));
+        listaDeUsuarioAS.add(new UsuarioA("BARTOLO","PERALES",45,"23456B"));
+        listaDeUsuarioAS.add(new UsuarioA("EUSTAQUIO","BONIATO",59,"34567C"));
+        listaDeUsuarioAS.add(new UsuarioA("CENUTRIO","MENTECATO",68,"45678D"));
+        listaDeUsuarioAS.add(new UsuarioA("BARTOLIN","CENUTRITO",20,"56789F"));
 
-        List<Usuario> listaDeUsuariosEditado = listaDeUsuarios.stream().map(it ->edit(it))
+        List<UsuarioA> listaDeUsuariosEditado = listaDeUsuarioAS.stream().map(it ->edit(it))
                 .collect(Collectors.toList());
 
-        Map<Integer ,List<Usuario>> mapaDeUsuariosPorEdadEditado1 = listaDeUsuariosEditado.stream()
+        Map<Integer ,List<UsuarioA>> mapaDeUsuariosPorEdadEditado1 = listaDeUsuariosEditado.stream()
                 .collect(Collectors.groupingBy(it -> it.getEdad()));
 
 
-        Map<String, Usuario> mapaDeUsuariosPorDniEditado2 = listaDeUsuarios.stream()
+        Map<String, UsuarioA> mapaDeUsuariosPorDniEditado2 = listaDeUsuarioAS.stream()
                 .map(it -> edit(it))
                 .collect(Collectors.toMap( it -> it.getDni(), it -> it));
 
         System.out.println("PUM");
     }
 
-    public static Usuario edit (Usuario usuario)
+    public static UsuarioA edit (UsuarioA usuarioA)
     {
-        usuario.setNombre(usuario.getNombre().toLowerCase());
-        usuario.setApellido(usuario.getApellido() + " Boniato");
-        usuario.setApellido(usuario.getApellido().replace("o","a"));
-        usuario.setDni(usuario.getDni()+"X");
-        return usuario;
+        usuarioA.setNombre(usuarioA.getNombre().toLowerCase());
+        usuarioA.setApellido(usuarioA.getApellido() + " Boniato");
+        usuarioA.setApellido(usuarioA.getApellido().replace("o","a"));
+        usuarioA.setDni(usuarioA.getDni()+"X");
+        return usuarioA;
     }
 }

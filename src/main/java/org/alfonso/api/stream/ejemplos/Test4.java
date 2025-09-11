@@ -1,6 +1,6 @@
 package org.alfonso.api.stream.ejemplos;
 
-import org.alfonso.api.stream.ejemplos.models.Usuario;
+import org.alfonso.api.stream.ejemplos.models.UsuarioA;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +11,13 @@ public class Test4
 {
     public static void main(String[] args)
     {
-        List<Usuario> listaDeUsuarios = new ArrayList<>();
-        listaDeUsuarios.add(creaUsuario("PEPO","Delospalotes",34,"12345A"));
-        listaDeUsuarios.add(creaUsuario("MANOLIN","Chusquero",55,"23456B"));
-        listaDeUsuarios.add(creaUsuario("MENGANO","Tibetano",18,"34567C"));
-        listaDeUsuarios.add(creaUsuario("FULANO","Mongano",56,"45678D"));
+        List<UsuarioA> listaDeUsuarioAS = new ArrayList<>();
+        listaDeUsuarioAS.add(creaUsuario("PEPO","Delospalotes",34,"12345A"));
+        listaDeUsuarioAS.add(creaUsuario("MANOLIN","Chusquero",55,"23456B"));
+        listaDeUsuarioAS.add(creaUsuario("MENGANO","Tibetano",18,"34567C"));
+        listaDeUsuarioAS.add(creaUsuario("FULANO","Mongano",56,"45678D"));
 
-        Map<String,List<Usuario>> mapaPorDni = listaDeUsuarios.stream()
+        Map<String,List<UsuarioA>> mapaPorDni = listaDeUsuarioAS.stream()
                 .map( it -> lowerCaseUsuario(it))
                 .collect(Collectors.groupingBy(it -> it.getDni()));
 
@@ -26,9 +26,9 @@ public class Test4
     }
 
     // 1st
-    public static Usuario creaUsuario(String nombre, String apellido, int edad, String dni)
+    public static UsuarioA creaUsuario(String nombre, String apellido, int edad, String dni)
     {
-        return new Usuario(capitalize(nombre), capitalize(apellido), edad, dni );
+        return new UsuarioA(capitalize(nombre), capitalize(apellido), edad, dni );
     }
 
     // 2nd
@@ -42,10 +42,10 @@ public class Test4
     }
 
     // 3rd
-    public static Usuario lowerCaseUsuario(Usuario usuario)
+    public static UsuarioA lowerCaseUsuario(UsuarioA usuarioA)
     {
-        usuario.setNombre(usuario.getNombre().toLowerCase());
-        usuario.setApellido(usuario.getApellido().toLowerCase());
-        return usuario;
+        usuarioA.setNombre(usuarioA.getNombre().toLowerCase());
+        usuarioA.setApellido(usuarioA.getApellido().toLowerCase());
+        return usuarioA;
     }
 }
