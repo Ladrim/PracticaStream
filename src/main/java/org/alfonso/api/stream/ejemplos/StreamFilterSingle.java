@@ -29,14 +29,12 @@ public class StreamFilterSingle
         }
         else System.out.println("No se encontró");
 
-
         UsuarioA usuario = usuarioOptional.get();
         UsuarioA usuario2 = usuarioOptional.orElse(new UsuarioA("Pepe","Canelas",67,"12345K"));
         UsuarioA usuario3 = usuarioOptional.orElseThrow( () -> new RuntimeException("") );
 
         System.out.println(usuario);
-
-
+        
         if(!usuarioOptional.isEmpty()) System.out.println(usuarioOptional.orElseThrow());
 
         System.out.println(usuarioOptional.orElseThrow(() -> new RuntimeException("Error")));
