@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class UsuarioB
+public class UsuarioFactura
 {
     private String nombre;
     private String apellido;
@@ -13,7 +13,7 @@ public class UsuarioB
 
     private List<Factura> facturas;
 
-    public UsuarioB(String nombre, String apellido)
+    public UsuarioFactura(String nombre, String apellido)
     {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -43,18 +43,19 @@ public class UsuarioB
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o)
+    {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UsuarioB usuario = (UsuarioB) o;
+        UsuarioFactura usuario = (UsuarioFactura) o;
         return Objects.equals(nombre, usuario.nombre) && Objects.equals(apellido, usuario.apellido);
     }
 
     @Override
-    public int hashCode() {
-        return 0;
-    }
+    public int hashCode()
+    {return 0;}
 
     @Override
-    public String toString() {return  nombre  + " " + apellido  +  "\n id:" + id + "\n";}
+    public String toString()
+    {return  nombre  + " " + apellido  +  "\n id:" + id + "\n";}
 }

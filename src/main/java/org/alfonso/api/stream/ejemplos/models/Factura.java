@@ -3,7 +3,7 @@ package org.alfonso.api.stream.ejemplos.models;
 public class Factura
 {
     private String descripcion;
-    private UsuarioA usuario;
+    private UsuarioFactura usuario;
 
     public Factura(String descripcion)
     {
@@ -13,13 +13,13 @@ public class Factura
     public String getDescripcion()
     {return descripcion;}
 
-    public UsuarioA getUsuarioFactura()
+    public UsuarioFactura getUsuarioFactura()
     {return usuario;}
 
     public void setDescripcion(String descripcion)
     {this.descripcion = descripcion;}
 
-    public void setUsuarioFactura(UsuarioA usuarioFactura)
+    public void setUsuarioFactura(UsuarioFactura usuarioFactura)
     {this.usuario = usuarioFactura;}
 
     @Override
